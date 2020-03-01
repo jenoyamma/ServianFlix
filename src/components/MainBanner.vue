@@ -1,6 +1,6 @@
 <template>
     <v-content>
-      <v-container fluid fill-height>
+      <v-container fluid fill-height style="padding-top: 0px; padding-bottom: 0px">
         <v-layout column>
           <v-layout row>
             <v-flex md3 style="background-color:black;">
@@ -8,16 +8,16 @@
                 <v-flex md2/>
                 <v-flex md10>
                   <v-card height="100%" color="black" dark>
-                    <v-card-title style="font-size: 5em;" color="white"> Avengers </v-card-title>
+                    <v-card-title style="font-size: 5em;"> Avengers </v-card-title>
                     <v-spacer></v-spacer>
                     <v-card-text>
                       Nick Fury is compelled to launch the Avengers Initiative when Loki poses a threat to planet Earth. His squad of superheroes put their minds together to accomplish the task.
                     </v-card-text>
                     <v-card-text id="card_btn">
                         <v-btn color="red" dark tile><v-icon>mdi-play</v-icon>Play</v-btn>&nbsp;
-                        <v-btn text tile dark outlined><v-icon color="white">mdi-plus</v-icon>My List</v-btn> &nbsp;
-                        <v-btn text fab outlined small><v-icon color="white">mdi-thumb-up-outline</v-icon></v-btn> &nbsp;
-                        <v-btn text fab outlined small><v-icon color="white">mdi-thumb-down-outline</v-icon></v-btn>
+                        <v-btn text tile dark outlined><v-icon>mdi-plus</v-icon>My List</v-btn> &nbsp;
+                        <v-btn text fab outlined small><v-icon>mdi-thumb-up-outline</v-icon></v-btn> &nbsp;
+                        <v-btn text fab outlined small><v-icon>mdi-thumb-down-outline</v-icon></v-btn>
                     </v-card-text>
                     <v-card-text>
                       <p>Starring: Jeno Yamma, Jeno Yamma, Jeno Yamma</p>
