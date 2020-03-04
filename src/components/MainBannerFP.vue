@@ -29,12 +29,9 @@
                 </v-flex>
               </v-layout>
             </v-flex>
-            <v-row class="fill-height" align="center" justify="center">
-              <img :src="moviePoster" style="height:500px; width:350px">
-            </v-row>
-            <!-- <v-flex md9>
-              <img :src="moviePoster" style="height:500px; width:350px">
-            </v-flex> -->
+            <v-flex md9>
+              <img src="../assets/forest_gump_faded.jpg" style="height: 100%; width: 100%;">
+            </v-flex>
           </v-layout>
         </v-layout>
       </v-container>
@@ -56,43 +53,25 @@ export default {
       vote_count: '',
       vote_average: '',
       genre: '',
-      movieReleaseYear: '',
+      movieReleaseYear: ''
 
   }), 
   mounted() {
-    this.$http.get("https://3e8hjsabsj.execute-api.us-east-2.amazonaws.com/prod/get-movies", {
-    params: {
-        req_type: this.req_type, 
-        attribute: this.attribute
-    }
-    }).then(response => {
-        this.movieTitle = response.data.body.Items[0].movieTitle;
-        this.overview = response.data.body.Items[0].overview;
-        this.moviePoster = response.data.body.Items[0].moviePoster;
-        this.vote_count = response.data.body.Items[0].vote_count;
-        this.vote_average = response.data.body.Items[0].vote_average;
-        this.genre = response.data.body.Items[0].genre;
-        this.movieReleaseYear = response.data.body.Items[0].movieReleaseYear;
-    })
-  },
-  watch: {
-    attribute: function(newattribute){
         this.$http.get("https://3e8hjsabsj.execute-api.us-east-2.amazonaws.com/prod/get-movies", {
-            params: {
-                req_type: this.req_type, 
-                attribute: newattribute
-            }
+        params: {
+            req_type: this.req_type, 
+            attribute: this.attribute
+        }
         }).then(response => {
-          this.movieTitle = response.data.body.Items[0].movieTitle;
-          this.overview = response.data.body.Items[0].overview;
-          this.moviePoster = response.data.body.Items[0].moviePoster;
-          this.vote_count = response.data.body.Items[0].vote_count;
-          this.vote_average = response.data.body.Items[0].vote_average;
-          this.genre = response.data.body.Items[0].genre;
-          this.movieReleaseYear = response.data.body.Items[0].movieReleaseYear;
+            this.movieTitle = response.data.body.Items[0].movieTitle;
+            this.overview = response.data.body.Items[0].overview;
+            this.moviePoster = response.data.body.Items[0].moviePoster;
+            this.vote_count = response.data.body.Items[0].vote_count;
+            this.vote_average = response.data.body.Items[0].vote_average;
+            this.genre = response.data.body.Items[0].genre;
+            this.movieReleaseYear = response.data.body.Items[0].movieReleaseYear;
         })
     }
-},
 }
 
 </script>

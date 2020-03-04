@@ -1,21 +1,23 @@
 <template>
   <v-app>
     <top-bar/>
-    <main-banner attribute="69"/>
+    <main-banner-FP attribute="69"/>
     <v-container fluid fill-height style="padding: 0px;">
       <v-layout column>
         <v-flex md4>
-          <movie-carousels title="Popular on Servianflix"></movie-carousels>
-        </v-flex>
-        <v-spacer/>
-        <v-flex md3>
-          <movie-carousels title="You may also like"></movie-carousels>
+          <movie-carousels title="You may also like" attribute="Animation"></movie-carousels>
         </v-flex>
         <v-flex md3>
-          <movie-carousels title="Action & Adventure"></movie-carousels>
+          <movie-carousels title="Action & Adventure" attribute="Adventure"></movie-carousels>
+        </v-flex>   
+        <v-flex md3>
+          <movie-carousels title="Animation" attribute="Animation"></movie-carousels>
+        </v-flex>              
+        <v-flex md3>
+          <movie-carousels title="Romance" attribute="Romance"></movie-carousels>
         </v-flex>
         <v-flex md3>
-          <movie-carousels title="Comedies"></movie-carousels>
+          <movie-carousels title="Sci-Fi" attribute="Sci-Fi"></movie-carousels>
         </v-flex>
       </v-layout>
     </v-container>
@@ -31,14 +33,14 @@
 
 <script>
 import TopBar from './components/TopBar';
-import MainBanner from './components/MainBanner';
+import MainBannerFP from './components/MainBannerFP';
 import MovieCarousels from './components/MovieCarousels';
 
 export default {
   name: 'App',
   components: {
     TopBar,
-    MainBanner,
+    MainBannerFP,
     MovieCarousels,
   },
   data: () => ({
