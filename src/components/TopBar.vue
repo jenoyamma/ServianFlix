@@ -5,8 +5,8 @@
           <v-flex md8>
             <v-img
               alt="SERVIANFLIX"
-              src="https://fontmeme.com/permalink/200229/e71b14311747c3fa1621222554f017f3.png"
-              width="200"
+              src="https://company-profile-images.s3.amazonaws.com/images/814520/1182509/logo/servian-logo.png"
+              width="300"
             />
           </v-flex>
           <v-flex md4> 
@@ -28,15 +28,15 @@
                 clearable
                 v-if="search"
               />
-              <v-btn large icon tile>KIDS</v-btn>
-              <v-btn large text icon tile><v-icon>mdi-gift</v-icon></v-btn>
-              <v-btn large text icon tile><v-icon>mdi-bell</v-icon></v-btn>
+              <v-btn large icon tile>WE</v-btn>
+              <v-btn large text icon tile><v-icon color="red">mdi-heart</v-icon></v-btn>
+              <v-btn large text icon tile><v-icon>mdi-database</v-icon></v-btn>
               <v-menu offset-y>
                 <template v-slot:activator="{ on }">
                   <v-btn large text icon tile v-on="on">
                     <v-avatar tile>
                       <img
-                        src="https://m-square.com.au/wp-content/uploads/2018/04/IconOnly.png"
+                        src="https://pbs.twimg.com/profile_images/766411362440323072/rI2LGExV_400x400.jpg"
                         alt="SageMaker"
                       >
                     </v-avatar>
@@ -63,10 +63,12 @@ export default {
     name: 'TopBar',
     data: () => ({
         items: [
-            { title: 'Click Me' },
-            { title: 'Click Me' },
-            { title: 'Click Me' },
-            { title: 'Click Me 2' },
+            { title: 'OUR SERVICES' },
+            { title: 'Cloud + Technology' },
+            { title: 'Data + Analytics' },
+            { title: 'Artificial Intelligence' },
+            { title: 'Digital' },
+            { title: 'Customer Engagement' },
         ],
         search: false
   })

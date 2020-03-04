@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@mdi/font": "^4.9.95",
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
+    "vue-resize-text": "^0.1.1",
     "vueperslides": "^2.8.2",
     "vuetify": "^2.2.15"
   },
