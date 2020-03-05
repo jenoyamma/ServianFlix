@@ -74,6 +74,18 @@ export default {
       }).then(response => {
           this.images = response.data.body
       })
+  },
+  watch: {
+    attribute: function(newattribute){
+        this.$http.get("https://3e8hjsabsj.execute-api.us-east-2.amazonaws.com/prod/get-movies", {
+            params: {
+                req_type: this.req_type, 
+                attribute: newattribute
+            }
+        }).then(response => {
+          this.images = response.data.body
+        })
+    }
   }
 }
 </script>

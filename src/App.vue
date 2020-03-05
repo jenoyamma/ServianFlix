@@ -5,8 +5,10 @@
     <main-banner-FP attribute="69"/>
     <v-container fluid fill-height style="padding: 0px;">
       <v-layout column>
-        <v-flex md4>
-          <movie-carousels title="You may also like" :attribute="username" :endpoint="endpoint"></movie-carousels>
+        <v-flex md3>
+          <v-lazy v-model="isActive">
+            <movie-carousels title="You may also like" :attribute="username" :endpoint="endpoint"></movie-carousels>
+          </v-lazy>
         </v-flex>
         <v-flex md3>
           <movie-carousels title="Action & Adventure" attribute="Adventure" :endpoint="endpoint"></movie-carousels>
@@ -44,7 +46,8 @@ export default {
   },
   data: () => ({
     username: "",
-    endpoint: ""
+    endpoint: "",
+    isActive: false
   }),
   methods: {
     test(event) {
