@@ -1,24 +1,24 @@
 <template>
   <v-app>
+    <welcome-form @dat="test"></welcome-form>
     <top-bar/>
-        <welcome-form></welcome-form>
     <main-banner-FP attribute="69"/>
     <v-container fluid fill-height style="padding: 0px;">
       <v-layout column>
         <v-flex md4>
-          <movie-carousels title="You may also like" attribute="Animation"></movie-carousels>
+          <movie-carousels title="You may also like" :attribute="username" :endpoint="endpoint"></movie-carousels>
         </v-flex>
         <v-flex md3>
-          <movie-carousels title="Action & Adventure" attribute="Adventure"></movie-carousels>
+          <movie-carousels title="Action & Adventure" attribute="Adventure" :endpoint="endpoint"></movie-carousels>
         </v-flex>   
         <v-flex md3>
-          <movie-carousels title="Animation" attribute="Animation"></movie-carousels>
+          <movie-carousels title="Animation" attribute="Animation" :endpoint="endpoint"></movie-carousels>
         </v-flex>              
         <v-flex md3>
-          <movie-carousels title="Romance" attribute="Romance"></movie-carousels>
+          <movie-carousels title="Romance" attribute="Romance" :endpoint="endpoint"></movie-carousels>
         </v-flex>
         <v-flex md3>
-          <movie-carousels title="Sci-Fi" attribute="Sci-Fi"></movie-carousels>
+          <movie-carousels title="Sci-Fi" attribute="Sci-Fi" :endpoint="endpoint"></movie-carousels>
         </v-flex>
       </v-layout>
     </v-container>
@@ -43,6 +43,15 @@ export default {
     WelcomeForm
   },
   data: () => ({
+    username: "",
+    endpoint: ""
   }),
+  methods: {
+    test(event) {
+      this.username = event.username
+      this.endpoint = event.endpoint
+      console.log(this.username)
+    }
+  }
 };
 </script>

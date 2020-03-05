@@ -37,7 +37,7 @@
       <v-btn absolute right small fab color="red" dark @click="dialog = false">
           <v-icon>mdi-close</v-icon>
       </v-btn>
-      <main-banner style="padding:15px !important" :attribute="movieId" sm_fm_endpoint="factorization-machines-2020-03-03-01-55-12-377"/>
+      <main-banner style="padding:15px !important" :attribute="movieId" :sm_fm_endpoint="endpoint"/>
     </v-dialog>
   </v-content>
 </template>
@@ -48,7 +48,8 @@ export default {
     name: 'MovieCarousels',
     props: {
       title: String,
-      attribute: String
+      attribute: String,
+      endpoint: String
     },
     components: {
       MainBanner
@@ -72,7 +73,6 @@ export default {
       }
       }).then(response => {
           this.images = response.data.body
-          console.log(this.images)
       })
   }
 }
