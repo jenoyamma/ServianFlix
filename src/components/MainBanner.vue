@@ -23,7 +23,7 @@
                     <v-card-text>
                       <p>Genres: {{genre}}</p>
                       <p>This movie is: Exciting</p>
-                      <p>Chance that you will like this: 63%</p>
+                      <p>{{likelihood}}</p>
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -46,7 +46,8 @@
 export default {
     name: 'MainBanner',
     props: {
-      attribute: String
+      attribute: String,
+      sm_fm_endpoint: String
     },
     data: () => ({
       req_type: 'single',
@@ -57,14 +58,16 @@ export default {
       vote_average: '',
       genre: '',
       movieReleaseYear: '',
+      like_probability: '',
+      likelihood: ''
 
   }), 
   mounted() {
     this.$http.get("https://3e8hjsabsj.execute-api.us-east-2.amazonaws.com/prod/get-movies", {
-    params: {
-        req_type: this.req_type, 
-        attribute: this.attribute
-    }
+      params: {
+          req_type: this.req_type, 
+          attribute: this.attribute
+      }
     }).then(response => {
         this.movieTitle = response.data.body.Items[0].movieTitle;
         this.overview = response.data.body.Items[0].overview;
@@ -73,6 +76,14 @@ export default {
         this.vote_average = response.data.body.Items[0].vote_average;
         this.genre = response.data.body.Items[0].genre;
         this.movieReleaseYear = response.data.body.Items[0].movieReleaseYear;
+    }),
+    this.$http.get("https://3e8hjsabsj.execute-api.us-east-2.amazonaws.com/prod/likelihood", {
+      params: {
+          sm_fm_endpoint: this.sm_fm_endpoint,
+          attribute: this.attribute
+      }
+    }).then(response => {
+        this.likelihood = response.data.body
     })
   },
   watch: {
@@ -90,6 +101,14 @@ export default {
           this.vote_average = response.data.body.Items[0].vote_average;
           this.genre = response.data.body.Items[0].genre;
           this.movieReleaseYear = response.data.body.Items[0].movieReleaseYear;
+        }),
+        this.$http.get("https://3e8hjsabsj.execute-api.us-east-2.amazonaws.com/prod/likelihood", {
+          params: {
+              sm_fm_endpoint: this.sm_fm_endpoint,
+              attribute: newattribute
+          }
+        }).then(response => {
+            this.likelihood = response.data.body
         })
     }
 },

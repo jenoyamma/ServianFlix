@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <top-bar/>
+        <welcome-form></welcome-form>
     <main-banner-FP attribute="69"/>
     <v-container fluid fill-height style="padding: 0px;">
       <v-layout column>
@@ -21,10 +22,6 @@
         </v-flex>
       </v-layout>
     </v-container>
-    <v-snackbar v-model="snackbar" timeout=10000> 
-      <b>Resize browser slightly if movies doesn't load</b>
-      <v-btn color="red" text @click="snackbar = false">Close</v-btn>
-    </v-snackbar>
   </v-app>
 </template>
 
@@ -35,6 +32,7 @@
 import TopBar from './components/TopBar';
 import MainBannerFP from './components/MainBannerFP';
 import MovieCarousels from './components/MovieCarousels';
+import WelcomeForm from './components/WelcomeForm';
 
 export default {
   name: 'App',
@@ -42,9 +40,9 @@ export default {
     TopBar,
     MainBannerFP,
     MovieCarousels,
+    WelcomeForm
   },
   data: () => ({
-    snackbar: true
   }),
 };
 </script>
