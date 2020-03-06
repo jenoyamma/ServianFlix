@@ -1,0 +1,62 @@
+import boto3
+import pandas as pd
+from boto3.dynamodb.conditions import Key, Attr
+
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('movie_md')
+
+new_movie_metadata = pd.read_csv('movie_metadata.csv')
+
+for index, row in new_movie_metadata.iterrows():
+    genre_list = []
+    
+    if str(row['Action']) == "1":
+        genre_list.append("Action")
+    if str(row['Adventure']) == "1":
+        genre_list.append("Adventure")
+    if str(row['Action']) == "1":
+        genre_list.append("Action")
+    if str(row['Animation']) == "1":
+        genre_list.append("Animation")
+    if str(row["Children's"]) == "1":
+        genre_list.append("Children")
+    if str(row['Comedy']) == "1":
+        genre_list.append("Comedy")
+    if str(row['Crime']) == "1":
+        genre_list.append("Crime")
+    if str(row['Documentary']) == "1":
+        genre_list.append("Documentary")
+    if str(row['Drama']) == "1":
+        genre_list.append("Drama")
+    if str(row['Fantasy']) == "1":
+        genre_list.append("Fantasy")
+    if str(row['Film-Noir']) == "1":
+        genre_list.append("Film-Noir")
+    if str(row['Horror']) == "1":
+        genre_list.append("Horror")
+    if str(row['Musical']) == "1":
+        genre_list.append("Musical")
+    if str(row['Romance']) == "1":
+        genre_list.append("Romance")
+    if str(row['Sci-Fi']) == "1":
+        genre_list.append("Sci-Fi")
+    if str(row['Thriller']) == "1":
+        genre_list.append("Thriller")
+    if str(row['War']) == "1":
+        genre_list.append("War")
+    if str(row['Western']) == "1":
+        genre_list.append("Western")
+    genre_list.append("unknown")
+        
+    my_item = {
+        'movieId': str(row["movieId"]),
+        'moviePoster': str(row["moviePoster"]),
+        'movieTitle': str(row["movieTitle"]),
+        'movieReleaseYear': str(row["movieReleaseYear"]),
+        'genre': genre_list[0],
+        'overview': str(row['overview']),
+        'vote_average': str(row['vote_average']),
+        'vote_count': str(row['vote_count'])
+    }
+
+    response = table.put_item(Item=my_item)
